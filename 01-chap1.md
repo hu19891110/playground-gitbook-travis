@@ -1,3 +1,5 @@
 # chapter one
 
-tralala
+Here's some Haxe code \o/
+
+[include](samples/Test.hx)

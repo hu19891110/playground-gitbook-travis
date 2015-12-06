@@ -1,5 +1,5 @@
 {
-    "plugins": ["edit-link"],
+    "plugins": ["edit-link", "include-codeblock"],
     "pluginsConfig": {
         "edit-link": {
             "base": "https://github.com/nadako/playground-gitbook-travis/edit/master",
