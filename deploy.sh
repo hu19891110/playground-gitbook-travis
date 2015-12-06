@@ -1,21 +1,15 @@
 #!/bin/bash
-
-set -o errexit -o nounset
+set -e
 
 rev=$(git rev-parse --short HEAD)
 
 cd _book
 
 git init
-git config user.name "Dan Korostelev"
+git config user.name "Travis CI"
 git config user.email "nadako@gmail.com"
 
-git remote add upstream "https://$GH_TOKEN@github.com/nadako/playground-gitbook-travis.git"
-git fetch upstream
-git reset upstream/gh-pages
+git add .
+git commit -m "Build from ${rev}"
 
-touch .
-
-git add -A .
-git commit -m "rebuild pages at ${rev}"
-git push -q upstream HEAD:gh-pages
+git push --force --quiet "https://${GH_TOKEN}@github.com/nadako/playground-gitbook-travis.git" master:gh-pages > /dev/null 2>&1
